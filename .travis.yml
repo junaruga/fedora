@@ -55,5 +55,5 @@ deploy:
           docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" "$DOCKER_SERVER" && \
               docker push $DOCKER_REPO
     on:
-        # branch: master
+        branch: feature/travis-deploy
         type: push
