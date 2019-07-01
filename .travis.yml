@@ -45,9 +45,13 @@ script:
     - |
       make test ARCH="${ARCH}" VERSION="${VERSION}" DOCKER_REPO="${DOCKER_REPO}"
 
-after_success:
-    - |
-      if [[ $TRAVIS_BRANCH == 'master' && $TRAVIS_PULL_REQUEST == 'false' ]]; then
+deploy:
+    provider: script
+    script:
+        - false
+        - |
           docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" "$DOCKER_SERVER" && \
               docker push $DOCKER_REPO
-      fi
+    on:
+        branch: master
+        type: push
