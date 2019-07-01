@@ -48,6 +48,7 @@ script:
       make test ARCH="${ARCH}" VERSION="${VERSION}" DOCKER_REPO="${DOCKER_REPO}"
 
 deploy:
+    skip_cleanup: true
     provider: script
     script: |
         docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" "$DOCKER_SERVER" && docker push $DOCKER_REPO
