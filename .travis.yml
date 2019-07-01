@@ -17,8 +17,10 @@ addons:
 env:
     global:
         - QEMU_VER=v4.0.0-2
-        - DOCKER_SERVER=docker.io
-        - DOCKER_REPO=$DOCKER_SERVER/multiarch/fedora
+        # - DOCKER_SERVER=docker.io
+        - DOCKER_SERVER=quay.io
+        # - DOCKER_REPO=$DOCKER_SERVER/multiarch/fedora
+        - DOCKER_REPO=$DOCKER_SERVER/junaruga/multiarch-fedora
     matrix:
         # Set available tar files
         # https://download.fedoraproject.org/pub/fedora/linux/releases/$VERSION/Container/$ARCH/images
